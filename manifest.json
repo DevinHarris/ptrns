@@ -1,0 +1,17 @@
+{
+	"name": "ptrns",
+	"version": "1.0",
+	"description": "New Tab Extension",
+	"manifest_version": 2,
+	"author": "Devin Harris",
+
+	"browser_action": {
+		"default_title": "Personal new tab extension"
+	},
+
+	"chrome_url_overrides": {
+		"newtab": "newtab.html"
+	},
+
+	"permissions": ["activeTab", "http://newsapi.org/"]
+}

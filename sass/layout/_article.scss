@@ -1,0 +1,35 @@
+.article {
+	align-items: flex-start;
+	background: url(../article-bg.jpg) center center no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding-bottom: 100px;
+	height: 100vh;
+	padding-left: 40px;
+	width: 100vw;
+
+	.article-source {
+		display: block;
+		font-size: 1.5em;
+		font-weight: 500;
+	}
+
+	.article-title {
+		font-size: 3em;
+		font-weight: 700;
+	}
+
+	.preview-btn {
+		padding: 10px;
+		background: #fff;
+		outline: none;
+		border: none;
+		border-radius: 3px;
+		margin-top: 20px;
+		font-size: 1em;
+	}
+}
