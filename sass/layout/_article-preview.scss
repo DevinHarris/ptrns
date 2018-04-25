@@ -1,0 +1,32 @@
+.article-preview {
+	background-color: #12121c;
+	height: 100%;
+	width: 600px;
+	position: fixed;
+	top: 0;
+	right: -600px;
+	transform: translate3d(0, 0, 0);
+	transition: all 0.3s ease;
+	padding: 50px;
+	box-sizing: border-box;
+
+	.article-preview-title,
+	.article-preview-meta,
+	.article-preview-description {
+		margin-bottom: 50px;
+	}
+
+	.article-preview-meta {
+		display: block;
+	}
+
+	.preview-close-btn {
+		background: none;
+		border: none;
+		color: #fff;
+	}
+}
+
+.show-article-preview {
+	transform: translate3d(-600px, 0, 0);
+}

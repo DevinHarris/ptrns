@@ -32,10 +32,38 @@ reqPromise.then(
 	background-attachment: fixed;">
 					<span class="article-source">${source.source.name}</span>
 					<h2 class="article-title"><a href=${source.url} target="_blank">${source.title}</a></h2>
-					<button class="preview-btn">Preview</button>
+					<button class="preview-btn" data-article="${source.title}">Preview</button>
 			</div>`;
 
 			$articlesWrap.append(tempStr);
+		});
+
+		$('.preview-btn').on('click', function(e) {
+			$('.article-preview').addClass('show-article-preview');
+			let articleTitle = $(this).data('article');
+
+			console.log(articleTitle);
+
+			let selectedArticle = dataObj.articles.find(function(article) {
+				return articleTitle === article.title;
+			});
+
+			console.log(selectedArticle);
+
+			let previewTempStr = `
+			<h1 class="article-preview-title">${selectedArticle.title}</h1>
+			<span class="article-preview-meta">${selectedArticle.author} - ${selectedArticle.source.name} - ${moment(
+				selectedArticle.publishedAt
+			).format('dddd, MMMM Do, YYYY')}</span>
+			<p class="article-preview-description">${selectedArticle.description}</p>
+			<button class="preview-close-btn"><i class="material-icons">close</i></button>
+			`;
+
+			$('.article-preview').html(previewTempStr);
+
+			$('.preview-close-btn').on('click', function(e) {
+				$('.article-preview').removeClass('show-article-preview');
+			});
 		});
 	},
 	function(error) {
@@ -88,10 +116,37 @@ reqPromise.then(
 	background-attachment: fixed;">
 					<span class="article-source">${source.source.name}</span>
 					<h2 class="article-title"><a href=${source.url} target="_blank">${source.title}</a></h2>
-					<button class="preview-btn">Preview</button>
+					<button class="preview-btn" data-article="${source.title}">Preview</button>
 			</div>`;
 
 					$articlesWrap.append(tempStr);
+				});
+
+				$('.preview-btn').on('click', function(e) {
+					$('.article-preview').addClass('show-article-preview');
+					let articleTitle = $(this).data('article');
+
+					console.log(articleTitle);
+
+					let selectedArticle = catDataObj.articles.find(function(article) {
+						return articleTitle === article.title;
+					});
+
+					console.log(selectedArticle);
+
+					let previewTempStr = `
+			<h1 class="article-preview-title">${selectedArticle.title}</h1>
+			<span class="article-preview-meta">${selectedArticle.author} - ${selectedArticle.source.name} - ${moment(
+						selectedArticle.publishedAt
+					).format('dddd, MMMM Do, YYYY')}</span>
+			<p class="article-preview-description">${selectedArticle.description}</p>
+			<button class="preview-close-btn"><i class="material-icons">close</i></button>
+			`;
+
+					$('.article-preview').html(previewTempStr);
+					$('.preview-close-btn').on('click', function(e) {
+						$('.article-preview').removeClass('show-article-preview');
+					});
 				});
 			},
 			function(error) {
@@ -99,4 +154,19 @@ reqPromise.then(
 			}
 		);
 	});
+
+	/*$('.username').on('blur', function(e) {
+		console.log('blur event');
+		let userNameVal = $(this).text();
+
+		chrome.storage.local.set({ ptrnUserName: userNameVal });
+	});
+
+	if (chrome.storage.local.get(['ptrnUserName'])) {
+		$('.username').text(
+			chrome.storage.local.get(['ptrnUserName'], function(result) {
+				return result.ptrnUserName;
+			})
+		);
+	} */
 })(jQuery);
