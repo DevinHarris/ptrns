@@ -19,8 +19,12 @@
 	}
 
 	.article-title {
-		font-size: 3em;
-		font-weight: 700;
+		a {
+			color: #fff;
+			font-size: 2em;
+			font-weight: 700;
+			text-decoration: none;
+		}
 	}
 
 	.preview-btn {

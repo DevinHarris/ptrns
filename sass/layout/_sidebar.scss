@@ -1,0 +1,32 @@
+.sidebar {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #1f2428;
+	overflow-x: hidden;
+	transition: all 0.3s ease;
+
+	.nav {
+		.nav-wrap {
+			li {
+				padding: 10px;
+				border-bottom: 1px solid #393939;
+
+				a {
+					color: #fff;
+					padding: 30px;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 1.2em;
+				}
+			}
+		}
+	}
+}
+
+.show-menu {
+	width: 250px;
+}
