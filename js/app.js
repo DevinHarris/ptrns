@@ -1,5 +1,5 @@
 const newsApiKey = '&apiKey=d020f53f5de3456eb05fbe6eee0e5ff3',
-	baseUrl = 'https://newsapi.org/v2/',
+	baseUrl = 'https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/',
 	$articlesWrap = $('.articles-wrap'),
 	$article = $('.article'),
 	$searchForm = $('.search-form');
@@ -42,7 +42,7 @@ reqPromise.then(
 	function(data) {
 		let dataObj = JSON.parse(data);
 
-		console.log(dataObj.articles);
+		//console.log(dataObj.articles);
 
 		renderArticles(dataObj, $articlesWrap);
 
@@ -50,13 +50,13 @@ reqPromise.then(
 			$('.article-preview').addClass('show-article-preview');
 			let articleTitle = $(this).data('article');
 
-			console.log(articleTitle);
+			//console.log(articleTitle);
 
 			let selectedArticle = dataObj.articles.find(function(article) {
 				return articleTitle === article.title;
 			});
 
-			console.log(selectedArticle);
+			//console.log(selectedArticle);
 
 			let previewTempStr = `
 			<h1 class="article-preview-title">${selectedArticle.title}</h1>
@@ -121,13 +121,13 @@ reqPromise.then(
 					$('.article-preview').addClass('show-article-preview');
 					let articleTitle = $(this).data('article');
 
-					console.log(articleTitle);
+					//console.log(articleTitle);
 
 					let selectedArticle = catDataObj.articles.find(function(article) {
 						return articleTitle === article.title;
 					});
 
-					console.log(selectedArticle);
+					//console.log(selectedArticle);
 
 					let previewTempStr = `
 			<h1 class="article-preview-title">${selectedArticle.title}</h1>
@@ -169,7 +169,7 @@ reqPromise.then(
 		e.preventDefault();
 		let searchVal = $('.search').val();
 
-		console.log(searchVal);
+		//console.log(searchVal);
 
 		let searchReq = new Promise(function(resolve, reject) {
 			let xhr = new XMLHttpRequest();
@@ -200,13 +200,13 @@ reqPromise.then(
 					$('.article-preview').addClass('show-article-preview');
 					let articleTitle = $(this).data('article');
 
-					console.log(articleTitle);
+					//console.log(articleTitle);
 
 					let selectedArticle = searchData.articles.find(function(article) {
 						return articleTitle === article.title;
 					});
 
-					console.log(selectedArticle);
+					//console.log(selectedArticle);
 
 					let previewTempStr = `
 			<h1 class="article-preview-title">${selectedArticle.title}</h1>
