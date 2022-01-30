@@ -1,0 +1,23 @@
+.news-header {
+    background-attachment: fixed;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100vh;
+    min-width: 100%;
+    padding: 5rem;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &__title {
+        font-size: 3rem;
+    }
+
+    &__description {
+        font-size: 1.5rem;
+    }
+}
