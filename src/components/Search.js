@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { searchAction } from '../actions'
+import { useDispatch } from 'react-redux';
+import { searchSlice, getSearch } from "./searchSlice";
 
 
-const Search = ({ term, searchAction }) => {
+const Search = ({ term }) => {
 
-    const onSearchTerm = (term) => {
-        searchAction(`here's your search term ${term}`)
+    const dispatch = useDispatch();
+
+    // const [searchTerm, setSearchTerm] = useState('')
+
+    const handleOnSearch = (term) => {
+
+        dispatch(getSearch(term));
     }
 
-    console.log(term);
+    // console.log(searchSlice.actions.getSearch());
+
 
     return (
-        <div className="search">
-            <input type="text" onChange={(e) => onSearchTerm(e.target.value)} className="search__input" placeholder="Search the biggest news stories" />
-        </div>
+            <div className="search">
+                <input type="text" onChange={(e) => handleOnSearch(e.target.value)} className="search__input" placeholder="Search the biggest news stories" />
+            </div>
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        term: state.term
-    }
-}
-
-export default connect(mapStateToProps, {
-    searchAction
-})(Search);
+export default Search;

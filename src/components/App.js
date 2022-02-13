@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import newsApi from "../api/newsApi";
+import SearchContext from '../searchContext';
 import Layout from "./Layout";
 import NewsHeader from "./NewsHeader";
 import SearchResults from "./SearchResults";
@@ -8,7 +9,9 @@ import SearchResults from "./SearchResults";
 const App = () => {
 
     const [defaultNewsArticles, setDefaultNewsArticles] = useState([])
-    const [searchTerm, setSearchTerm] = useState(''); 
+    const searchTerm = useContext(SearchContext);
+    // console.log(searchTerm.searchTerm);
+    // const [searchTerm, setSearchTerm] = useState(''); 
 
     useEffect(() => {
         console.log('loaded!')
@@ -22,22 +25,19 @@ const App = () => {
         getTopHeadlines();
     }, [])
 
-    const getSearchTerm = (term) => {
-        // setSearchTerm(term)
-        console.log(term);
-    }
+    // const getSearchTerm = (term) => {
+    //     // setSearchTerm(term)
+    //     console.log(term);
+    // }
 
     return (
-        <Layout>
-            <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<NewsHeader newsArticles={defaultNewsArticles} />}>
-                    { searchTerm ? <Navigate replace to="/search" /> : null }
-                </Route>
-                <Route path="/search" element={<SearchResults getSearchTerm={getSearchTerm} />} />
-            </Routes>
-            </BrowserRouter>
-        </Layout>
+            <Layout>
+                <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<NewsHeader newsArticles={defaultNewsArticles} />} />
+                </Routes>
+                </BrowserRouter>
+            </Layout>
        
     )
 }
