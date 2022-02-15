@@ -13,7 +13,7 @@ const Search = ({ term }) => {
 
     const handleOnSearch = (term) => {
 
-        // dispatch({ type: 'search/getSearchTerm', payload: term });
+        dispatch({ type: 'search/getSearchTerm', payload: term });
         dispatch(fetchStories(term));
         
         if (term) {
