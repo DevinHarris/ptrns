@@ -1,5 +1,6 @@
-@import '../styles/abstracts/base.scss';
-@import '../styles/components/news-header.scss';
-@import '../styles/components/nav';
-@import '../styles/components/search';
-@import '../styles/abstracts/typography'
+@import './abstracts/base.scss';
+@import './components/news-header.scss';
+@import './components/nav';
+@import './components/search';
+@import './abstracts/typography';
+@import './pages/search-results';

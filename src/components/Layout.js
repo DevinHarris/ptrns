@@ -1,9 +1,9 @@
 import React from 'react';
 import Nav from "./Nav";
 
-const Layout = ({ children, setSearchTerm }) => (
+const Layout = ({ children }) => (
     <div className="app">
-        <Nav setSearchTerm={setSearchTerm} />
+        <Nav />
         { children }
     </div>
 )

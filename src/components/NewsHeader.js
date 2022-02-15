@@ -3,7 +3,6 @@ import React from 'react';
 const NewsHeader = ({ newsArticles }) => {
 
     //const { author, content, source, description, title, url, urlToImage, publishedAt } = newsArticles;
-    console.log(newsArticles);
     const articles = newsArticles.map((article, index) => {
         return (
             <div className="news-header" key={index} style={{ background: `url(${article.urlToImage}) center center no-repeat fixed`, backgroundSize: 'cover' }}>
