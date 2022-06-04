@@ -15,9 +15,11 @@ const App = () => {
     useEffect(() => {
 
         const getTopHeadlines = async () => {
-            const { data } = await newsApi.get('/top-headlines?country=us');
+            const { data } = await newsApi.get('/news/all');
 
-            setDefaultNewsArticles(data.articles);
+            setDefaultNewsArticles(data.data.articles);
+
+            console.log(data.data.articles);
         }
 
         getTopHeadlines();
